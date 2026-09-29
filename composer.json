@@ -1,0 +1,16 @@
+{
+    "name": "blog/project",
+    "description": "Simple blog on pure PHP",
+    "type": "project",
+    "require": {
+        "php": ">=8.1",
+        "smarty/smarty": "^4.3",
+        "vlucas/phpdotenv": "^5.5",
+        "fakerphp/faker": "^1.23"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
