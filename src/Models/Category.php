@@ -143,17 +143,19 @@ class Category
                 INNER JOIN post_categories pc ON p.id = pc.post_id
                 WHERE pc.category_id IN ({$placeholders})
             ) ranked
-            WHERE rn <= :limit
+            WHERE rn <= ?
             ORDER BY category_id, created_at DESC
         ";
 
         $stmt = $this->db->prepare($sql);
 
-        // Биндим ID категорий
+        // Биндим ID категорий (позиционные, начиная с 1)
         foreach ($categoryIds as $i => $id) {
             $stmt->bindValue($i + 1, $id, PDO::PARAM_INT);
         }
-        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        
+        // Биндим limit (последняя позиция)
+        $stmt->bindValue(count($categoryIds) + 1, $limit, PDO::PARAM_INT);
         $stmt->execute();
 
         // Группируем результат по category_id

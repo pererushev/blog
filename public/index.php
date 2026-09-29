@@ -19,14 +19,23 @@ $route = $parts[0] ?? '';
 $slug = $parts[1] ?? '';
 
 try {
-    match (true) {
-        $uri === '/' => (new \App\Controllers\HomeController($smarty))->index(),
-        $route === 'category' && $slug => (new \App\Controllers\CategoryController($smarty))->show($slug),
-        $route === 'post' && $slug => (new \App\Controllers\PostController($smarty))->show($slug),
-        default => throw new Exception('404 Not Found'),
-    };
+    if ($uri === '/') {
+        (new \App\Controllers\HomeController($smarty))->index();
+    } elseif ($route === 'category' && $slug) {
+        (new \App\Controllers\CategoryController($smarty))->show($slug);
+    } elseif ($route === 'post' && $slug) {
+        (new \App\Controllers\PostController($smarty))->show($slug);
+    } else {
+        throw new Exception('404 Not Found');
+    }
 } catch (Exception $e) {
     http_response_code(404);
     echo '<h1>404 - Страница не найдена</h1>';
+    echo '<p>' . $e->getMessage() . '</p>';
     echo '<p><a href="/">Вернуться на главную</a></p>';
+    
+    // В dev-режиме показываем стек
+    if (($_ENV['APP_DEBUG'] ?? false) === 'true') {
+        echo '<pre>' . $e->getTraceAsString() . '</pre>';
+    }
 }
