@@ -7,7 +7,6 @@ $smarty = new Smarty();
 $smarty->setTemplateDir(__DIR__ . '/../templates');
 $smarty->setCompileDir(__DIR__ . '/../storage/cache/smarty/compile');
 $smarty->setCacheDir(__DIR__ . '/../storage/cache/smarty/cache');
-$smarty->setConfigDir(__DIR__ . '/../config/smarty');
 
 // В dev-режиме всегда перекомпилируем шаблоны
 if (($_ENV['APP_ENV'] ?? 'production') === 'development') {
