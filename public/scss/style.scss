@@ -1,0 +1,263 @@
+// Переменные
+$primary-color: #2563eb;
+$text-color: #1f2937;
+$bg-color: #f9fafb;
+$border-color: #e5e7eb;
+$spacing: 1rem;
+
+// Сброс
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: $text-color;
+  background: $bg-color;
+  line-height: 1.6;
+}
+
+// Контейнер
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing;
+}
+
+// Header
+.header {
+  background: white;
+  border-bottom: 1px solid $border-color;
+  padding: $spacing 0;
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $primary-color;
+    text-decoration: none;
+  }
+  
+  .nav {
+    display: flex;
+    gap: $spacing;
+  }
+  
+  .nav-link {
+    color: $text-color;
+    text-decoration: none;
+    
+    &.active {
+      color: $primary-color;
+      font-weight: 600;
+    }
+  }
+}
+
+// Footer
+.footer {
+  background: white;
+  border-top: 1px solid $border-color;
+  padding: $spacing 0;
+  margin-top: 3rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+// Post Card
+.post-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  &__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  &__content {
+    padding: $spacing;
+  }
+  
+  &__title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    
+    a {
+      color: $text-color;
+      text-decoration: none;
+      
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+  
+  &__description {
+    color: #6b7280;
+    margin-bottom: 1rem;
+  }
+  
+  &__meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: #9ca3af;
+  }
+}
+
+// Grid
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+// Category Section
+.category-section {
+  margin-bottom: 3rem;
+  
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid $primary-color;
+  }
+  
+  &__title {
+    font-size: 1.5rem;
+    color: $text-color;
+  }
+  
+  &__link {
+    color: $primary-color;
+    text-decoration: none;
+    font-weight: 600;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Pagination
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 2rem 0;
+  
+  &__link {
+    padding: 0.5rem 1rem;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    text-decoration: none;
+    color: $text-color;
+    
+    &:hover {
+      background: $primary-color;
+      color: white;
+      border-color: $primary-color;
+    }
+    
+    &--active {
+      background: $primary-color;
+      color: white;
+      border-color: $primary-color;
+    }
+  }
+}
+
+// Sort Controls
+.sort-controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  
+  &__link {
+    padding: 0.5rem 1rem;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    text-decoration: none;
+    color: $text-color;
+    
+    &.active {
+      background: $primary-color;
+      color: white;
+      border-color: $primary-color;
+    }
+  }
+}
+
+// Post Page
+.post-page {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  
+  &__image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+  
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  &__meta {
+    display: flex;
+    gap: 1rem;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $border-color;
+  }
+  
+  &__content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    
+    h2 {
+      margin: 1.5rem 0 1rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// Similar Posts
+.similar-posts {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid $border-color;
+  
+  &__title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}

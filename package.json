@@ -1,0 +1,11 @@
+{
+  "name": "blog-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "sass public/scss/style.scss public/css/style.css --style=compressed",
+    "watch": "sass public/scss/style.scss public/css/style.css --watch"
+  },
+  "devDependencies": {
+    "sass": "^1.69.0"
+  }
+}

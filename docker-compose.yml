@@ -40,6 +40,15 @@ services:
     networks:
       - blog-network
 
+  node:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: sh -c "npm install && npm run watch"
+    networks:
+      - blog-network
+
 volumes:
   mysql-data:
 
